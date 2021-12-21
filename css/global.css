@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.background-cover{
+    background-size: cover!important;
+}
+.background-fixed{
+    background-attachment: fixed!important;
+}
+.background-center{
+    background-position: center!important;
+}
+.background-no-repeat{
+    background-repeat: no-repeat!important;
+}
+.neumorphism-up {
+    background: var(--themeBgDark);
+    box-shadow: 8px 8px 16px rgb(0 0 0 / 64%),
+                -8px -8px 16px rgb(111 111 111 / 14%);
+    border-radius: 20px;
+}
+.neumorphism-down {
+    background: var(--themeBgDark);
+    box-shadow: inset 8px 8px 16px rgb(0 0 0 / 64%),
+                inset -8px -8px 16px rgb(111 111 111 / 14%);
+    border-radius: 20px;
+}
+.nunito{
+    font-family: 'Nunito', sans-serif;
+}
+.text-small{
+    font-size: 0.8rem;
+}
+.lucinda{
+    font-family: 'Lucinda';
+}
+.lucinda-light{
+    font-family: 'Lucinda-light';
+}
+.charu{
+    font-family: 'Charu';
+}
+.halo{
+    font-family: 'Halo';
+}
+.outline-none{
+    outline: none;
+}
