@@ -48,3 +48,11 @@
 .outline-none{
     outline: none;
 }
+.sidebar{
+    display: flex!important;
+    position: absolute;
+    right: 0;
+    width: 40%;
+    background: rgba(0, 0, 0, 0.685);
+    height: 50vh;
+}
