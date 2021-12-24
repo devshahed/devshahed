@@ -8,9 +8,6 @@
         <!-- ================= Home ================ -->
         <?php include('home.php'); ?>
     </main>
-    <!-- ================= Footer ================ -->
-    <?php include('footer.php'); ?>
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/app.js"></script>

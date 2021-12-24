@@ -60,6 +60,22 @@ input::placeholder, textarea::placeholder{
     height: 150px;
 }
 
+/* =================  Blogs  =================== */
+.blog-img{
+    height: 180px;
+}
+.blog-img img{
+    object-fit: cover;
+}
+#blogs ul{
+    top: 100%;
+    background: rgba(0, 0, 0, 0.897);
+    transition: 0.5s all;
+}
+#blogs ul li a{
+    font-size: 0.87rem;
+}
+
 /* =================  Contact  =================== */
 #submitBtn:hover{
     background: var(--themeBgDark);
