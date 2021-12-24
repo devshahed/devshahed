@@ -9,7 +9,7 @@
         <section id="contact" class="d-flex flex-column justify-content-center align-items-center">
             <div class="container text-white neumorphism-up py-5 px-3">
                 <h3 class="lucinda text-center pb-3">Contact me</h3>
-                <form action="send.php" method="POST" class="row">
+                <form action="<?php require('host.php'); ?>/send.php" method="POST" class="row">
                     <div class="col-sm-6 col-12">
                         <input id="fname" name="fname" type="text" placeholder="First Name" class="neumorphism-down border-0 outline-none w-100 p-3 my-3">
                     </div>
@@ -35,8 +35,8 @@
     <!-- ================= Footer ================ -->
     <?php include('footer.php'); ?>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/all.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="<?php require('host.php'); ?>/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php require('host.php'); ?>/js/all.min.js"></script>
+    <script src="<?php require('host.php'); ?>/js/app.js"></script>
 </body>
 </html>

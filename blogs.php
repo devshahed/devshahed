@@ -35,8 +35,8 @@
     <!-- ================= Footer ================ -->
     <?php include('footer.php'); ?>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/all.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="<?php require('host.php'); ?>/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php require('host.php'); ?>/js/all.min.js"></script>
+    <script src="<?php require('host.php'); ?>/js/app.js"></script>
 </body>
 </html>

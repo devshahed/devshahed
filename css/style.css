@@ -71,9 +71,14 @@ input::placeholder, textarea::placeholder{
     top: 100%;
     background: rgba(0, 0, 0, 0.897);
     transition: 0.5s all;
+    display: none;
 }
 #blogs ul li a{
     font-size: 0.87rem;
+}
+.admin-post-img{
+    max-width: 200px;
+    max-height: 150px;
 }
 
 /* =================  Contact  =================== */
