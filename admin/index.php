@@ -11,8 +11,7 @@ include('../head.php'); ?>
         <section id="home" class="d-flex flex-column justify-content-center align-items-center">
             <div class="my-4 container text-white neumorphism-up py-5 px-3 d-flex justify-content-center align-items-center flex-column">
                 <h1 class="display-1 text-center charu">Welcome Devshahed</h1>
-                <p>Total post: <span>100</span></p>
-                <p>Total users: <span>10</span></p>
+                <a href="add.php" class="text-white text-decoration-none neumorphism-up px-3 py-2">Add post</a>
             </div>
             <?php include('footer.php'); ?>
         </section>

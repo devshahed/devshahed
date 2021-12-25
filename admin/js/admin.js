@@ -90,18 +90,25 @@ select.onchange = ()=>{
     textField.document.execCommand(cmd, false, size);
 }
 
-
+function prev(event){
+    let banner = document.getElementById('banner');
+    banner.src = URL.createObjectURL(event.target.files[0]);
+}
 function submit(){
-    let content = textField.document.body.innerHTML;
-    let postdata = 'pdata='+content;
+    let title = document.getElementById('title').value;
+    let sdesc = document.getElementById('sdesc').value;
+    let desc = textField.document.body.innerHTML;
+    let bannerImage = document.getElementById('bannerImage').files[0];
+    let form_data = new FormData();
+    form_data.append("title", title);
+    form_data.append("sdesc", sdesc);
+    form_data.append("desc", desc);
+    form_data.append("bannerImage", bannerImage);
     async function data(){
         try{
             return (await fetch("savepost.php", {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: postdata
+                body: form_data
             })).text();
         }catch(err){
             console.log(err);

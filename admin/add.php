@@ -4,7 +4,7 @@
 $host = $_SERVER['HTTP_HOST'];
 $head = $host.'/head.php';
 include('../head.php'); ?>
-<body class="bg-white">
+<body class="bg-white" id="saved">
     <header class="py-3 border-bottom">
         <nav class="row container-fluid justify-content-between align-items-center">
             <div class="logo col-lg-2 col-3 d-flex align-items-center">
@@ -28,30 +28,33 @@ include('../head.php'); ?>
         <!-- ================= Edit ================ -->
         <section id="edit" class="d-flex flex-column justify-content-center align-items-center">
             <div class="container d-flex flex-column justify-content-center align-items-center py-3">
-                <div id="saved"></div>
+                <div><img id="banner" src="" alt="Upload a banner"></div>
+                <input id="bannerImage" type="file" onchange="prev(event)">
                 <h5>Title</h5>
-                <input class="text-dark outline-none border border-danger border-3 p-2 w-100 my-3" type="text" name="title">
-                <h5>Description</h5>
-                <div enctype='multipart/form-data' method="POST" action="savepost.php" class="d-flex justify-content-center align-items-center my-3">
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="bold"><i class="fas fa-bold"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="italic"><i class="fas fa-italic"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="underline"><i class="fas fa-underline"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="justifyLeft"><i class="fas fa-align-left"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="justifyCenter"><i class="fas fa-align-center"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="justifyFull"><i class="fas fa-align-justify"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="justifyRight"><i class="fas fa-align-right"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="insertImage"><i class="fas fa-images"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="createLink"><i class="fas fa-link"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="insertOrderedList"><i class="fas fa-list-ol"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="insertUnorderedList"><i class="fas fa-list"></i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="formatBlock" data-tag="h1">H1</button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="formatBlock" data-tag="h2">H2</i></button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="formatBlock" data-tag="h3">H3</button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="formatBlock" data-tag="h4">H4</button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="formatBlock" data-tag="h5">H5</button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="formatBlock" data-tag="h6">H6</button>
-                    <button class="bg-white text-danger p-2 border border-2 border-danger mx-2" type="button" data-cmd="formatBlock" data-tag="p">P</button>
-                    <select class="bg-white text-danger p-2 border border-2 border-danger mx-2" data-cmd="fontSize" name="font-size" id="fontSizeSelect">
+                <input id="title" class="text-dark outline-none border border-danger border-3 p-2 w-100 my-3" type="text">
+                <h5>Short Description</h5>
+                <textarea id="sdesc" class="text-dark outline-none border border-danger border-3 p-2 w-100 my-3" type="text"></textarea>
+                <h5>Long Description</h5>
+                <div class="d-flex justify-content-center align-items-center my-3 flex-wrap">
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="bold"><i class="fas fa-bold"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="italic"><i class="fas fa-italic"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="underline"><i class="fas fa-underline"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="justifyLeft"><i class="fas fa-align-left"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="justifyCenter"><i class="fas fa-align-center"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="justifyFull"><i class="fas fa-align-justify"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="justifyRight"><i class="fas fa-align-right"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="insertImage"><i class="fas fa-images"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="createLink"><i class="fas fa-link"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="insertUnorderedList"><i class="fas fa-list"></i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="formatBlock" data-tag="h1">H1</button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="formatBlock" data-tag="h2">H2</i></button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="formatBlock" data-tag="h3">H3</button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="formatBlock" data-tag="h4">H4</button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="formatBlock" data-tag="h5">H5</button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="formatBlock" data-tag="h6">H6</button>
+                    <button class="bg-white text-danger p-2 border border-2 border-danger m-1" type="button" data-cmd="formatBlock" data-tag="p">P</button>
+                    <select class="bg-white text-danger p-2 border border-2 border-danger m-1" data-cmd="fontSize" name="font-size" id="fontSizeSelect">
                         <?php for($i = 1; $i < 8; $i++){
                             if($i == 3){
                                 echo "<option selected value=\"$i\">$i</option>";
