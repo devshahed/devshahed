@@ -24,4 +24,3 @@ function dropdown(){
         },10);
     }
 }
-

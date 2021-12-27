@@ -1,3 +1,8 @@
+<?php
+    include_once('dbconfig.php'); 
+    $sql_cat = "SELECT cname FROM category";
+    $result = $conn->query($sql_cat);
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 <?php require('head.php'); ?>
@@ -14,10 +19,12 @@
                         <a href="javascript:void(0)" class="text-white text-decoration-none" onclick="dropdown()">Category</a>
 
                         <ul id="category" class="list-unstyled justify-content-center flex-column py-2 px-3 position-absolute">
-                            <li class="py-1"><a href="javascript:void(0)" class="text-white text-decoration-none d-block">All</a></li>
-                            <li class="py-1"><a href="javascript:void(0)" class="text-white text-decoration-none d-block">Latest</a></li>
-                            <li class="py-1"><a href="javascript:void(0)" class="text-white text-decoration-none d-block">Hacking</a></li>
-                            <li class="py-1"><a href="javascript:void(0)" class="text-white text-decoration-none d-block">Programming</a></li>
+                        <li class="py-1"><a href="javascript:void(0)" class="text-white text-decoration-none d-block">All</a></li>
+                        <?php if($result->num_rows > 0){
+                                while($row = $result->fetch_assoc()){
+                            ?>
+                            <li class="py-1"><a href="javascript:void(0)" class="text-white text-decoration-none d-block"><?php echo $row['cname'] ?></a></li>
+                        <?php }} ?>
                         </ul>
                     </div>
                     <form method="GET" action="?" class="col-sm-6 col-12 d-flex justify-content-center align-items-center py-sm-0 py-3">
@@ -26,8 +33,8 @@
                     </form>
                 </div>
                 
-                <div class="row">
-                    <?php include('blog.php'); ?>
+                <div id="blogBox" class="row">
+                    Loading please wait....
                 </div>
             </div>
         </section>
@@ -37,6 +44,7 @@
 
     <script src="<?php require('host.php'); ?>/js/bootstrap.bundle.min.js"></script>
     <script src="<?php require('host.php'); ?>/js/all.min.js"></script>
+    <script src="<?php require('host.php'); ?>/js/ajax.js"></script>
     <script src="<?php require('host.php'); ?>/js/app.js"></script>
 </body>
 </html>
